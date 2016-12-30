@@ -11,11 +11,11 @@
             templateUrl: '/templates/landing.html'
         })
         .state('album', {
-            url: '/album',
+            url: '/',
             templateUrl: '/templates/album.html'
         })
         .state('collection', {
-            url: '/collection',
+            url: '/',
             templateUrl: '/templates/collection.html'
         });        
     }
