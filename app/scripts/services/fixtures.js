@@ -1,5 +1,6 @@
 (function() {
     function Fixtures() {
+
         var Fixtures = {};
     
         // album Object #1
@@ -10,11 +11,11 @@
             year: '1881',
             albumArtUrl: '/assets/images/album_covers/01.png',
             songs: [
-                { title: 'Blue', duration: 161.71, audiourl: 'assets/music/blue'},
-                { title: 'Green', duration: 103.96, audiourl: 'assets/music/Green'},
-                { title: 'Red', duration: 268.45, audiourl: 'assets/music/Red'},
-                { title: 'Pink', duration: 153.14, audiourl: 'assets/music/Pink'},
-                { title: 'Magenta', duration: 374.22, audiourl: 'assets/music/Magenta'}
+                { title: 'Blue', duration: 161.71, audioUrl: 'assets/music/blue'},
+                { title: 'Green', duration: 103.96, audioUrl: 'assets/music/Green'},
+                { title: 'Red', duration: 268.45, audioUrl: 'assets/music/Red'},
+                { title: 'Pink', duration: 153.14, audioUrl: 'assets/music/Pink'},
+                { title: 'Magenta', duration: 374.22, audioUrl: 'assets/music/Magenta'}
             ]
         };
 
@@ -58,7 +59,7 @@
             var array = [];
             
             for ( var i = 1; i <= numberOfAlbums; i++ ) {
-                array.push(albumPicasso);
+                    array.push(albumPicasso);   
             }
             
             return array;
