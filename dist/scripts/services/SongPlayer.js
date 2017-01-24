@@ -4,7 +4,7 @@
 
         /**
         * @desc Album information stored in a new variable
-        * @type variable!!!
+        * @type {object}
         */
         var currentAlbum = Fixtures.getAlbum();
 
@@ -37,8 +37,8 @@
         * @function getSongIndex
         * @desc Gets the index of a song from the songs array
         * @param [array]
-        */        
-        var getSongIndex = function(song) {
+        */      
+        var getSongIndex = function (song) {
             return currentAlbum.songs.indexOf(song);
         };
         
@@ -58,28 +58,40 @@
             song.playing = true;
         };
 
-                /**
+        /**
         * @function stopSong
         * @desc Stop playing a song from the album object
         * @param {Object} song
         */
         var stopSong = function (song) {
             currentBuzzObject.stop();
-            song.playing = true;
+            song.playing = null;
         };
 
-        SongPlayer.play = function (song) {
+        /**
+        * @function play
+        * @desc Play current or new song
+        * @param {Object} song
+        */
+        SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
-            if (SongPlayer.currentSong !== song) {
+            if ( song == null ) {
+                currentSongIndex = currentAlbum.songs[0]; 
+            } else if (SongPlayer.currentSong !== song) {
                 setSong(song);
                 playSong(song);
             } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
-                    currentBuzzObject.play();
+                    playSong(song);
                 }
             }
         };
         
+        /**
+        * @function pause
+        * @desc Pause current song
+        * @param {Object} song
+        */
         SongPlayer.pause = function (song) {
             song = song || SongPlayer.currentSong;
             currentBuzzObject.pause();
@@ -107,7 +119,7 @@
         * @function next song
         * @desc Jumps ahead to the next song when clicked.
         */        
-        SongPlayer.next = function() {
+        SongPlayer.next = function () {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
             
