@@ -36,6 +36,16 @@
                 });
             });
             
+            /**
+            * @function Autoplay next song
+            * @desc Plays the next song when one is completed.
+            * @param {Object} song
+            */
+            currentBuzzObject.bind('ended', function(event) {
+                SongPlayer.next();
+            });
+            
+            
             SongPlayer.currentSong = song;
         };
         
